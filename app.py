@@ -4,9 +4,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-	return jasonify(status="ok")
+    return jsonify(status="ok")
+
+@app.route("/status")
+def status():
+    return jsonify(status="running")
 
 if __name__ == "__main__":
-	app.run(port=5000)
-
-
+    app.run(port=5000)
